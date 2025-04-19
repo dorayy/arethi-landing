@@ -12,7 +12,7 @@ const About: React.FC = () => {
               <img
                 src="/arethu.jpeg"
                 alt="Portrait of the Artist"
-                className="w-full h-auto relative z-10 grayscale"
+                className="w-full h-auto relative z-10"
               />
             </div>
           </div>
