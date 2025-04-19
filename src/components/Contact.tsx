@@ -22,7 +22,14 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
     setError(null); // Clear any previous errors when user makes changes
   };
-  
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+  //   setError(null);
+  //   setIsSubmitted(true);
+
+  // }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
