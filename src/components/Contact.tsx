@@ -3,7 +3,7 @@ import { Mail, Send, Instagram } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 // Initialize EmailJS with your user ID from environment variable
-emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+// emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -23,51 +23,51 @@ const Contact: React.FC = () => {
     setError(null); // Clear any previous errors when user makes changes
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-  //   setError(null);
-  //   setIsSubmitted(true);
-
-  // }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
+    setIsSubmitted(true);
+
+  }
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+  //   setError(null);
     
-    try {
-      // Send email using EmailJS with environment variables
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_name: 'arethibala@gmail.com',
-        }
-      );
+  //   try {
+  //     // Send email using EmailJS with environment variables
+  //     await emailjs.send(
+  //       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+  //       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+  //       {
+  //         from_name: formData.name,
+  //         from_email: formData.email,
+  //         subject: formData.subject,
+  //         message: formData.message,
+  //         to_name: 'arethibala@gmail.com',
+  //       }
+  //     );
       
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+  //     setIsSubmitted(true);
+  //     setFormData({
+  //       name: '',
+  //       email: '',
+  //       subject: '',
+  //       message: ''
+  //     });
       
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (err) {
-      setError('Failed to send message. Please try again later.');
-      console.error('Email sending failed:', err);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //     // Reset success message after 5 seconds
+  //     setTimeout(() => {
+  //       setIsSubmitted(false);
+  //     }, 5000);
+  //   } catch (err) {
+  //     setError('Failed to send message. Please try again later.');
+  //     console.error('Email sending failed:', err);
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
   
   return (
     <section id="contact" className="py-20 bg-white">
